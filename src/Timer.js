@@ -5,15 +5,19 @@ class Timer extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            time: 5 * 3600
+            time: (+props.number - +new Date()) / 1000
         }
     }
     
     componentDidMount() {
-        setInterval(() => {
+        this.interval=setInterval(() => {
             this.setState({time : this.state.time - 1});
             }
         ,1000)
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval)
     }
 
     render() {

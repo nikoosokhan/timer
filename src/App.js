@@ -15,10 +15,11 @@ class App extends React.Component {
     //methods
 
     render() {
-        
+        let date = new Date('Tue Sep 03 2019 23:53:10 GMT+0430');
+
         return (
             <div>
-                {this.state.showingTimer ? <Timer /> : null}
+                {this.state.showingTimer ? <Timer number={date}/> : null}
 
                 <div>
                     <button 
