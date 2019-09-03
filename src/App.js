@@ -8,27 +8,35 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            showingTimer: false,
+            offerEndDate: 'Tue Sep 03 2019 23:53:10 GMT+0430',
         }
     }
 
     //methods
 
     render() {
-        let date = new Date('Tue Sep 03 2019 23:53:10 GMT+0430');
+        let date = new Date(this.state.offerEndDate);
 
         return (
             <div>
-                {this.state.showingTimer ? <Timer number={date}/> : null}
+                <Timer number={date}/>
+
+                <span>{this.state.offerEndDate}</span>
+
+                <br/>
 
                 <div>
                     <button 
-                        onClick={() => this.setState({showingTimer: !this.state.showingTimer})}
+                        onClick={() => this.setState({offerEndDate: nextDate(date)})}
                     >click me</button>
                 </div>
             </div>
         )
     }
+}
+
+function nextDate(date) {
+    return (new Date(+date + (Math.random() * 1000 * 60 * 60 * 6)).toString());
 }
 
 export default App;
