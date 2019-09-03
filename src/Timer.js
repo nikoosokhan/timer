@@ -20,16 +20,15 @@ class Timer extends React.Component{
     render() {
         return(
             <div>
-                {()=>this.handleClick()}
                 <div>
                     {   parseInt(this.state.time/3600%24)+ ':' +
                         parseInt(this.state.time/60%60)+ ':' +
                         parseInt(this.state.time%60)
                     }
                 </div>
-                {/*<div>*/}
-                {/*    <button onClick={}>click me</button>*/}
-                {/*</div>*/}
+                <div>
+                    <button onClick={()=>this.handleClick()}>click me</button>
+                </div>
             </div>
         )
     }
