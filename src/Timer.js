@@ -5,12 +5,10 @@ class Timer extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            time: 5
+            time: 5*3600
         }
     }
     handleClick(){
-        this.setState({time : this.state.time*3600});
-
         setInterval(()=>{
             this.setState({time : this.state.time-1});
             }
@@ -18,12 +16,15 @@ class Timer extends React.Component{
     }
 
     render() {
+        let {time:seconds} = this.state;
+        let h = parseInt(seconds/3600%24);
+        let m = parseInt(seconds/60%60);
+        let s = parseInt(seconds%60);
         return(
             <div>
                 <div>
-                    {   parseInt(this.state.time/3600%24)+ ':' +
-                        parseInt(this.state.time/60%60)+ ':' +
-                        parseInt(this.state.time%60)
+                    {
+                        twoDigits(h) + ':' + twoDigits(m) + ':' + twoDigits(s)
                     }
                 </div>
                 <div>
@@ -32,6 +33,13 @@ class Timer extends React.Component{
             </div>
         )
     }
+}
+
+function twoDigits(number) {
+    if(number < 10){
+        return '0' + number
+    }
+    return '' + number
 }
 
 export default Timer;
