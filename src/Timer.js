@@ -5,12 +5,13 @@ class Timer extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            time: 5*3600
+            time: 5 * 3600
         }
     }
-    handleClick(){
-        setInterval(()=>{
-            this.setState({time : this.state.time-1});
+    
+    componentDidMount() {
+        setInterval(() => {
+            this.setState({time : this.state.time - 1});
             }
         ,1000)
     }
@@ -26,9 +27,6 @@ class Timer extends React.Component{
                     {
                         twoDigits(h) + ':' + twoDigits(m) + ':' + twoDigits(s)
                     }
-                </div>
-                <div>
-                    <button onClick={()=>this.handleClick()}>click me</button>
                 </div>
             </div>
         )
