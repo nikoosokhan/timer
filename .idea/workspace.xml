@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bec7b80-18f4-4d8b-853d-92edf8495896" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/RedClock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SimpleClock.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Timer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Timer.js" afterDir="false" />
     </list>
@@ -50,6 +53,8 @@
       <updated>1567507222151</updated>
       <workItem from="1567507224519" duration="143000" />
       <workItem from="1567508410257" duration="13602000" />
+      <workItem from="1567580896378" duration="18961000" />
+      <workItem from="1567628481999" duration="1328000" />
     </task>
     <servers />
   </component>
@@ -61,7 +66,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

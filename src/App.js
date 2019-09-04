@@ -1,25 +1,23 @@
-
 import React from 'react'
 import Timer from "./Timer";
+import SimpleClock from "./SimpleClock";
 
 class App extends React.Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
-            offerEndDate: 'Tue Sep 03 2019 23:53:10 GMT+0430',
+            offerEndDate: 'Wed Sep 5 2019 01:28:16 GMT+0430',
         }
     }
-
-    //methods
 
     render() {
         let date = new Date(this.state.offerEndDate);
 
         return (
             <div>
-                <Timer number={date}/>
+                <Timer number={date} clock={SimpleClock}/>
+
 
                 <span>{this.state.offerEndDate}</span>
 

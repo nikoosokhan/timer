@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 class Timer extends React.Component{
     constructor(props){
@@ -15,33 +14,27 @@ class Timer extends React.Component{
             }
         ,1000)
     }
-
     componentWillUnmount() {
         clearInterval(this.interval)
     }
 
+    componentWillReceiveProps(nextProps, nextContext) {
+        if(this.props.number.toString() !== nextProps){
+            this.setState({time : (+nextProps.number - +new Date()) / 1000})
+         }
+    }
+
     render() {
-        let {time:seconds} = this.state;
-        let h = parseInt(seconds/3600%24);
-        let m = parseInt(seconds/60%60);
-        let s = parseInt(seconds%60);
+        let Clock =this.props.clock;
         return(
             <div>
                 <div>
-                    {
-                        twoDigits(h) + ':' + twoDigits(m) + ':' + twoDigits(s)
-                    }
+                    <Clock seconds={this.state.time}/>
                 </div>
             </div>
         )
     }
 }
 
-function twoDigits(number) {
-    if(number < 10){
-        return '0' + number
-    }
-    return '' + number
-}
 
 export default Timer;
