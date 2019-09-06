@@ -25,7 +25,7 @@ class Timer extends React.Component{
     }
 
     render() {
-        let Clock =this.props.clock;
+        let Clock =this.props.clockType;
         return(
             <div>
                 <div>

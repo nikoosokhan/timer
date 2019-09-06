@@ -1,13 +1,15 @@
 import React from 'react'
 import Timer from "./Timer";
 import SimpleClock from "./SimpleClock";
+import CurrentClock from "./CurrentClock";
+import RedClock from "./RedClock";
 
 class App extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            offerEndDate: 'Wed Sep 5 2019 01:28:16 GMT+0430',
+            offerEndDate: 'Wed Sep 6 2019 20:28:16 GMT+0430',
         }
     }
 
@@ -16,8 +18,8 @@ class App extends React.Component {
 
         return (
             <div>
-                <Timer number={date} clock={SimpleClock}/>
-
+                <Timer number={date} clockType={SimpleClock}/>
+                <CurrentClock clockType={RedClock}/>
 
                 <span>{this.state.offerEndDate}</span>
 
