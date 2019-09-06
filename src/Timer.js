@@ -1,6 +1,7 @@
-import React from 'react';
+import React from 'react'
+import useForceUpdate from './useForceUpdate';
 
-class Timer extends React.Component{
+class TimerClassic extends React.Component{
     
     componentDidMount() {
         this.interval=setInterval(() => {
@@ -27,29 +28,26 @@ class Timer extends React.Component{
     }
 }
 
-// function Timer(props) {
-//     const [time , setTime]=React.useState((+props.number - +new Date()) / 1000);
-//
-//     const ref= React.useRef(null);
-//
-//
-//     React.useEffect(() => {
-//         ref.current=setInterval(() => setTime( time - 1) ,1000);
-//         return () => clearInterval(ref.current);
-//     }, [time]);
-//
-//
-//
-//     let Clock =props.clockType;
-//     return(
-//         <div>
-//             <div>
-//                 <Clock seconds={time}/>
-//             </div>
-//         </div>
-//     )
-//
-// }
+
+
+function Timer(props) {
+
+    useForceUpdate(1000);
+
+    console.log("f");
+
+    let time = (+props.number - +new Date()) / 1000;
+
+    let Clock =props.clockType;
+    return(
+        <div>
+            <div>
+                <Clock seconds={time}/>
+            </div>
+        </div>
+    )
+
+}
 
 
 export default Timer;

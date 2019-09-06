@@ -1,4 +1,5 @@
 import React from 'react'
+import useForceUpdate from './useForceUpdate';
 
 class CurrentClockClassic extends React.Component{
     constructor(props){
@@ -28,17 +29,9 @@ class CurrentClockClassic extends React.Component{
 
 function CurrentClock(props) {
 
-    // state
-    const [currentTime, setCurrentTime] = React.useState(+new Date() / 1000);
+    useForceUpdate(1000);
 
-    // reference for interval
-    const ref = React.useRef(null);
-
-    // side effect on componentDidMount 
-    React.useEffect(() => {
-        ref.current = setInterval(() => setCurrentTime(+new Date() / 1000), 1000);
-        return () => clearInterval(ref.current);
-    }, []);
+    let currentTime = +new Date() / 1000;
 
     let Clock = props.clockType;
 
