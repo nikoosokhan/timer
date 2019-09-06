@@ -1,6 +1,6 @@
 import React from 'react'
 
-class CurrentClock extends React.Component{
+class CurrentClockClassic extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -24,4 +24,27 @@ class CurrentClock extends React.Component{
         )
     }
 }
+
+
+function CurrentClock(props) {
+
+    // state
+    const [currentTime, setCurrentTime] = React.useState(+new Date() / 1000);
+
+    // reference for interval
+    const ref = React.useRef(null);
+
+    // side effect on componentDidMount 
+    React.useEffect(() => {
+        ref.current = setInterval(() => setCurrentTime(+new Date() / 1000), 1000);
+        return () => clearInterval(ref.current);
+    }, []);
+
+    let Clock = props.clockType;
+
+    return (
+        <Clock seconds={currentTime + 4 * 3600 + 30 * 60} />
+    );
+}
+
 export default CurrentClock;
