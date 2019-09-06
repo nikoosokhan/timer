@@ -1,16 +1,10 @@
 import React from 'react';
 
 class Timer extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            time: (+props.number - +new Date()) / 1000
-        }
-    }
     
     componentDidMount() {
         this.interval=setInterval(() => {
-            this.setState({time : this.state.time - 1});
+            this.forceUpdate();
             }
         ,1000)
     }
@@ -18,23 +12,44 @@ class Timer extends React.Component{
         clearInterval(this.interval)
     }
 
-    componentWillReceiveProps(nextProps, nextContext) {
-        if(this.props.number.toString() !== nextProps){
-            this.setState({time : (+nextProps.number - +new Date()) / 1000})
-         }
-    }
 
     render() {
+        let time = (+this.props.number - +new Date()) / 1000
+
         let Clock =this.props.clockType;
         return(
             <div>
                 <div>
-                    <Clock seconds={this.state.time}/>
+                    <Clock seconds={time}/>
                 </div>
             </div>
         )
     }
 }
+
+// function Timer(props) {
+//     const [time , setTime]=React.useState((+props.number - +new Date()) / 1000);
+//
+//     const ref= React.useRef(null);
+//
+//
+//     React.useEffect(() => {
+//         ref.current=setInterval(() => setTime( time - 1) ,1000);
+//         return () => clearInterval(ref.current);
+//     }, [time]);
+//
+//
+//
+//     let Clock =props.clockType;
+//     return(
+//         <div>
+//             <div>
+//                 <Clock seconds={time}/>
+//             </div>
+//         </div>
+//     )
+//
+// }
 
 
 export default Timer;
