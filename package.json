@@ -5,9 +5,12 @@
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1"
+    "react-scripts": "3.1.1",
+    "react-unified": "^0.1.18",
+    "react-window": "^1.6.0-alpha.1"
   },
   "scripts": {
+    "fix": "npm i react-window@1.6.0-alpha.1",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
